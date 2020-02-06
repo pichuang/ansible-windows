@@ -4,7 +4,7 @@
 
   vars:
     username: "*"
-    message: "openshift"
+    message: "紅帽紅帽好棒棒"
     time: "3"
 
   tasks:
