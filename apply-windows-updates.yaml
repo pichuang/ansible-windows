@@ -1,0 +1,21 @@
+---
+- hosts: all
+  vars:
+    # https://docs.ansible.com/ansible/latest/modules/win_updates_module.html
+    apply_rule: "installed"
+  tasks:
+  - name: Install all critical and security updates
+    win_updates:
+      category_names:
+      - CriticalUpdates
+      - SecurityUpdates
+      state: '{{ apply_rule }}'
+    register: update_result
+
+  - name: Show result
+    debug:
+      var: '{{ update_result }}'
+
+  - name: Reboot host if required
+    win_reboot:
+    when: update_result.reboot_required
