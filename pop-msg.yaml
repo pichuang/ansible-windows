@@ -1,0 +1,13 @@
+---
+- hosts: all
+  gather_facts: no
+
+  vars:
+    username: "*"
+    message: "openshift"
+    time: "3"
+
+  tasks:
+  # https://docs.microsoft.com/zh-tw/windows-server/administration/windows-commands/msg
+  - name: Pop Message
+    win_shell: "msg {{ username }} /time:{{ time }} {{ message }}"
