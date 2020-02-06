@@ -1,0 +1,18 @@
+---
+- hosts: all
+  vars:
+    dest_dir: C:\ansible\example
+    src_filename: remote.ps1
+  tasks:
+  - name: Create folder on remote host
+    win_file:
+      path: "{{ dest_dir }}"
+      state: directory
+
+  - name: Copy the file to remote host
+    win_copy:
+      src: "{{ src_filename }}"
+      dest: '{{ dest_dir }}\{{ src_filename }}'
+
+  - name: Execute the file
+    win_shell: echo %HOMEDIR
