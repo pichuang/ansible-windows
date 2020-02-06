@@ -1,9 +1,0 @@
-[win-server:vars]
-ansible_user=administrator
-ansible_password=xxxx
-ansible_connection=winrm
-ansible_winrm_server_cert_validation=ignore
-ansible_port=5985
-
-[win-server]
-win2016.misc.internal ansible_host=10.0.96.7
